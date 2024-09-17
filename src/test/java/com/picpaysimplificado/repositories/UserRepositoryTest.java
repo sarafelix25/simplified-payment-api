@@ -3,7 +3,7 @@ package com.picpaysimplificado.repositories;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import org.hibernate.usertype.UserType;
+import org.hibernate.usertype.UserType.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ class UserRepositoryTest {
     @DisplayName("Should get user successfully from DB")
     public void findUserByDocument() {
         String document = "12345678";
-        UserDTO data = new UserDTO("Sara", "Test", document, new BigDecimal(24), "sara@email.com", "123456", com.picpaysimplificado.domain.user.UserType.COMMON);
+        UserDTO data = new UserDTO("Sara", "Test", document, new BigDecimal(24), "sara@email.com", "123456", UserType.COMMON);
         this.createUser(data);
         
         Optional<User> result = this.userRepository.findUserByDocument(document);
